@@ -1,5 +1,5 @@
 % Fungsi regula_falsi
-function root = regula_falsi(func, a, b, tolerance, max_iterations)
+function regula_falsi(func, a, b, tolerance, max_iterations)
     % Inisialisasi nilai awal untuk root
     root = NaN;
 
