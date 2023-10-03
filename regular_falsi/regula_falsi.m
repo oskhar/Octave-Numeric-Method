@@ -1,18 +1,20 @@
 % Fungsi regula_falsi
-function regula_falsi(func, a, b, tolerance, max_iterations)
+function root = regula_falsi(func, a, b, tolerance, max_iterations)
     % Inisialisasi nilai awal untuk root
     root = NaN;
 
-    % Mengecek apakah fungsi a dan b memiliki tanda yang berbeda
-    if func(a) * func(b) >= 0
-        error('Error: Fungsi a dan b harus memiliki tanda yang berbeda.');
-    end
+    % Menampilkan data ke konsol
+    fprintf('%-5s%-12s%-12s%-12s%-12s%-12s%-12s\n', 'Iter', 'a', 'b', 'c', 'f(a)', 'f(b)', 'f(c)');
 
     % Algoritma Regula Falsi
     iterations = 0;
     while iterations < max_iterations
+
         % Menghitung titik potong dengan sumbu x
         c = (a * func(b) - b * func(a)) / (func(b) - func(a));
+
+        % Menampilkan nilai a, c, b, f(a), f(c), dan f(b) dalam bentuk tabel
+        fprintf('%-5d%-12.6f%-12.6f%-12.6f%-12.6f%-12.6f%-12.6f\n', iterations, a, b, c, func(a), func(b), func(c));
 
         % Mengecek apakah nilai c sudah sangat mendekati akar
         if abs(func(c)) < tolerance
