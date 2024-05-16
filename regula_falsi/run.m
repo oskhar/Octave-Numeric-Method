@@ -1,9 +1,9 @@
 % Definisikan fungsi yang ingin Anda cari akarnya (exp(x) - 5*x^2)
-func = @(x) e.^x - 5*x.^2;
+func = @(x) 2*x.^3 - 2*x - 5;
 
 % Batas awal a dan b
 a = -0.50;
-b = 1.40;
+b = 1.75;
 tolerance = 0.001;
 max_iterations = 100;
 

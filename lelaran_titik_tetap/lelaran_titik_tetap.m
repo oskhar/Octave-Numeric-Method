@@ -1,29 +1,31 @@
-% Fungsi yang ingin dicari akarnya 
-f = @(x) x.^3 - 2*x.^2 + 4;
+% Fungsi iterasi (g(x))
+g = @(x) sqrt(4 + x);
 
 % Tebakan awal
-x0 = 2;
+x0 = 1.5;
 
 % Toleransi
-tol = 0.1;
+tol = 0.0000001;
 
 % Maksimum iterasi
 max_iter = 100;
 
-fprintf('Iterasi\t  x\t\t f(x)\n');
+fprintf('Iterasi\t  x\t\t g(x)\n');
 fprintf('------------------------------\n');
 
 iter = 0;
 x = x0;
 
 while iter < max_iter
-    x_next = f(x);  % Rumus iterasi titik tetap
+    x_next = g(x);  % Rumus iterasi titik tetap
     
-    fprintf('%d\t  %f\t %f\n', iter, x, f(x));
+    % Melakukan print untuk setiap perhitungan yang dilakukan
+    fprintf('%d\t  %.6f\t %.6f\n', iter, x_next, g(x_next));
     
+    % Mengecek apakah x sebelumnya dikurang x baru memiliki hasil yang diinginkan
     if abs(x_next - x) < tol
         fprintf('\nKonvergensi tercapai.\n');
-        fprintf('\nAkar perkiraan: %f\n', x_next);
+        fprintf('\nAkar perkiraan: %.6f\n', x_next);
         fprintf('Iterasi yang diperlukan: %d\n', iter + 1); % Jumlah iterasi yang diperlukan
         break;  % Konvergen
     end
